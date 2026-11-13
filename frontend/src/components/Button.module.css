@@ -1,0 +1,35 @@
+/* Base button */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Sizes */
+.btn.m {
+  width: 100px;
+  height: 40px;
+}
+
+
+.btn.s {
+  width: 70px;
+  height: 30px;
+}
+
+.btn.l {
+  width: 140px;
+  height: 50px;
+}
+
+/* Shapes */
+.btn.rounded {
+  border-radius: 12px;
+}
+
+.btn.circle {
+  border-radius: 50%;
+}
