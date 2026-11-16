@@ -1,31 +1,20 @@
-import { Button } from "./Button";
-import languageEn from "../assets/english.png";
-import languageFr from "../assets/french.png";
-import type { Language } from "../types/language";
+import styles from "./Button.module.css";
 
-type LanguageButtonProps = {
-  language: Language;
+type UserProfileButtonProps = {
+  initial: string;
   onClick: () => void;
 };
 
-const languageImages = {
-  en: languageEn,
-  fr: languageFr,
-};
 
-export function LanguageButton({ language, onClick }: LanguageButtonProps) {
-  const nextLanguage = language === "en" ? "French" : "English";
-
+export function UserProfileButton({ initial, onClick }: UserProfileButtonProps) {
   return (
-    <Button
-      variant="ghost"
-      className="language-button"
+    <button
+      title={initial}
+      className={styles["user-profile-button"]}
       onClick={onClick}
-      aria-label={`Switch language to ${nextLanguage}`}
-      style={{
-        backgroundImage: `url(${languageImages[language]})`
-      }}
+      aria-label={"User Profile"}
     >
-    </Button>
+      {initial}
+    </button>
   );
 }

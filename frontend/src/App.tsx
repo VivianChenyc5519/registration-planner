@@ -1,8 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import { CoursePage } from "./features/Course/CoursePage";
+// import { SchedulePage } from "./features/Schedule/SchedulePage";
 
 function App() {
   return (
-    <CoursePage/>
+    <Routes>
+      <Route path="/" element={<CoursePage />} />
+      {/* <Route path="/schedule" element={<SchedulePage />} /> */}
+    </Routes>
   );
 }
 

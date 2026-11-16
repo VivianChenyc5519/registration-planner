@@ -14,7 +14,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({
-  variant = "primary",
   size = "m",
   isLoading = false,
   shape = "rounded",
@@ -26,7 +25,6 @@ export function Button({
   return (
     <button
       {...rest}
-      data-variant={variant}
       disabled={disabled || isLoading}
       className={[styles.btn, styles[size], styles[shape], className]
         .filter(Boolean)
