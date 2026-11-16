@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from "./SpecialButton.module.css";
 
 type UserProfileButtonProps = {
   initial: string;

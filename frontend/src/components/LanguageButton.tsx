@@ -1,7 +1,7 @@
 import languageEn from "../assets/english.png";
 import languageFr from "../assets/french.png";
 import type { Language } from "../types/language";
-import styles from "./Button.module.css";
+import styles from "./SpecialButton.module.css";
 
 type LanguageButtonProps = {
   language: Language;
