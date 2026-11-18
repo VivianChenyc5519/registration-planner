@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { CoursePage } from "./features/Course/CoursePage";
+import { CoursePage } from "./features/Course/coursePage";
 // import { SchedulePage } from "./features/Schedule/SchedulePage";
 
 function App() {
