@@ -6,7 +6,12 @@ import type { Language } from "../../types/Language";
 import Banner from "../../components/Banner/Banner";
 import { FilterButton } from "../../components/SpecialButton";
 
-export function CourseBanner() {
+interface CourseBannerProps {
+  onClickFilterButton: () => void;
+  className?: string;
+}
+
+export function CourseBanner({onClickFilterButton, className}: CourseBannerProps) {
   const [language, setLanguage] = useState<Language>("en");
   const navigate = useNavigate();
 
@@ -14,12 +19,13 @@ export function CourseBanner() {
     setLanguage(language === "en" ? "fr" : "en"); // could expand to other language later
   }
 
-  function onClickFilterButton() {
-    alert("Opening filter");
-  }
+  // function onClickFilterButton() {
+  //   alert("Opening filter");
+  // }
 
   return (
     <Banner
+      className={className}
       left={<FilterButton onClick={onClickFilterButton} />}
       center={<h1>A search bar</h1>}
       right={

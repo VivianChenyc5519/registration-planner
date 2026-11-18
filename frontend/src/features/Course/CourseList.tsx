@@ -4,11 +4,12 @@ import CourseCard from "./CourseCard";
 
 interface CourseListProps {
     courses: Course[];
+    className?: string;
 }
 
-export default function CourseList({courses}: CourseListProps) {
+export default function CourseList({courses, className}: CourseListProps) {
   return (
-    <div className={style["course-list"]}>
+    <div className={`${style['course-list']} ${className ?? ''}`}>
       {courses.map((course) => (
         <CourseCard
           key={course.id}

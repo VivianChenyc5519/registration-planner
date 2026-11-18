@@ -1,26 +1,38 @@
+
 /* Base button */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  box-sizing: border-box;
+  border: 2px solid #333;
+  background-color: #f8e7a8;
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+
   cursor: pointer;
+  transition: background-color 0.2s ease,
+              transform 0.2s ease;
 }
 
 /* Sizes */
 .btn.m {
   width: 100px;
-  height: 40px;
+  height: 50px;
 }
 
-
 .btn.s {
-  width: 70px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .btn.l {
   width: 140px;
-  height: 50px;
+  height: 60px;
 }
 
 /* Shapes */
@@ -30,4 +42,31 @@
 
 .btn.circle {
   border-radius: 50%;
+  aspect-ratio: 1;
+  width: auto;
+}
+
+/* Hover */
+.btn:hover {
+  background-color: #f2d77d;
+  transform: translateY(-2px);
+}
+
+/* Selected state */
+.btn.selected {
+  background-color: #e9c45e;
+  border-color: #222;
+}
+
+/* Keyboard focus */
+.btn:focus-visible {
+  outline: 3px solid #6596f3;
+  outline-offset: 3px;
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }

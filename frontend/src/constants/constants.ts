@@ -1,0 +1,1 @@
+export const ALL_PERIODS = [1, 2, 3, 4];

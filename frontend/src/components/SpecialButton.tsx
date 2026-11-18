@@ -2,7 +2,7 @@ import languageEn from "../assets/english.png";
 import languageFr from "../assets/french.png";
 import type { Language } from "../types/Language";
 import style from "./SpecialButton.module.css";
-import { Funnel } from "lucide-react";
+import { Funnel, Undo2 } from "lucide-react";
 
 type LanguageButtonProps = {
   language: Language;
@@ -48,5 +48,9 @@ export function LanguageButton({ language, onClick }: LanguageButtonProps) {
 }
 
 export const FilterButton = ({ onClick }: { onClick: () => void }) => {
-  return <Funnel className={style['filter-button']} onClick={onClick} />;
+  return <Funnel className={style['clickable-button']} onClick={onClick} />;
+};
+
+export const ReturnButton = ({ onClick }: { onClick: () => void }) => {
+  return <Undo2 className={style['clickable-button']} onClick={onClick} />;
 };
