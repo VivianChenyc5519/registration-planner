@@ -9,9 +9,10 @@ import { FilterButton } from "../../components/SpecialButton";
 interface CourseBannerProps {
   onClickFilterButton: () => void;
   className?: string;
+  filterOpen: Boolean;
 }
 
-export function CourseBanner({onClickFilterButton, className}: CourseBannerProps) {
+export function CourseBanner({onClickFilterButton, className, filterOpen}: CourseBannerProps) {
   const [language, setLanguage] = useState<Language>("en");
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ export function CourseBanner({onClickFilterButton, className}: CourseBannerProps
   return (
     <Banner
       className={className}
-      left={<FilterButton onClick={onClickFilterButton} />}
+      left={(!filterOpen && <FilterButton onClick={onClickFilterButton} />)}
       center={<h1>A search bar</h1>}
       right={
         <>

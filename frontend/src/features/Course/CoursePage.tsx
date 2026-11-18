@@ -15,7 +15,11 @@ export function CoursePage() {
   return (
     // <div className={style["course-page"]}>
       <main className={`${style['course-page']} ${filterOpen ? style['filter-open'] : ''}`}>
-        <CourseBanner className={style['course-page-banner']} onClickFilterButton={() => setFilterOpen(true)}/>
+        <CourseBanner
+          className={style['course-page-banner']}
+          filterOpen={filterOpen}
+          onClickFilterButton={() => setFilterOpen(true)}
+        />
         {filterOpen && (
           <CourseFilter className={style['course-page-filter']} allPeriods={ALL_PERIODS} onClose={() => setFilterOpen(false)}/>
         )}
