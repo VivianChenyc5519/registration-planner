@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LanguageButton } from "../../components/LanguageButton";
-import { UserProfileButton } from "../../components/UserProfileButton";
+import { LanguageButton } from "../../components/SpecialButton";
+import { UserProfileButton } from "../../components/SpecialButton";
 import type { Language } from "../../types/Language";
 import Banner from "../../components/Banner/Banner";
-import FilterButton from "../../components/FilterButton";
+import { FilterButton } from "../../components/SpecialButton";
 
 export function CourseBanner() {
   const [language, setLanguage] = useState<Language>("en");
@@ -20,7 +20,7 @@ export function CourseBanner() {
 
   return (
     <Banner
-      left={<FilterButton onClick={onClickFilterButton}/>}
+      left={<FilterButton onClick={onClickFilterButton} />}
       center={<h1>A search bar</h1>}
       right={
         <>
