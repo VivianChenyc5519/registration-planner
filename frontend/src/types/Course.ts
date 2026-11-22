@@ -1,7 +1,13 @@
-export type Period = '1' | '2' | '3' | '4';
-export type KnownCampus = 'PS' | "TP" | 'X' | 'TSP' | 'ENSTA';
-export type CourseCategory = 'Interaction' | 'Graphics' | 'Design' | 'Mixed Reality' | 'Multimodal/Robotics/Learning' | 'Programming' | 'Project';
-type Weekday = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+import {
+  ALL_PERIODS,
+  ALL_CAMPUSES,
+  ALL_CATEGORIES,
+} from '../constants/constants';
+
+export type Period = (typeof ALL_PERIODS)[number];
+export type KnownCampus = (typeof ALL_CAMPUSES)[number];
+export type CourseCategory = (typeof ALL_CATEGORIES)[number];
+type Weekday = 1 | 2 | 3 | 4 | 5;
 
 interface RecurringSchedule {
     type: "recurring";

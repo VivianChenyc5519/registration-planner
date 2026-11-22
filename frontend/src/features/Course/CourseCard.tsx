@@ -1,4 +1,4 @@
-import type { Course, CourseCategory } from "../../types/Course"
+import type { CourseCategory } from "../../types/Course"
 import style from './Course.module.css'
 
 interface CourseCardProps {
@@ -8,7 +8,6 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({code, title, category} : CourseCardProps) {
-    console.log("The category of this card is ", category);
     return (
         <div className={style['course-card']}>
             <div className={style['course-card-content']}>

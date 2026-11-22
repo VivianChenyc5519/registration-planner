@@ -2,7 +2,7 @@ import languageEn from "../assets/english.png";
 import languageFr from "../assets/french.png";
 import type { Language } from "../types/Language";
 import style from "./SpecialButton.module.css";
-import { Funnel, Undo2 } from "lucide-react";
+import { Funnel, Undo2, CirclePlus, CircleMinus  } from "lucide-react";
 
 type LanguageButtonProps = {
   language: Language;
@@ -53,4 +53,12 @@ export const FilterButton = ({ onClick }: { onClick: () => void }) => {
 
 export const ReturnButton = ({ onClick }: { onClick: () => void }) => {
   return <Undo2 className={style['clickable-button']} onClick={onClick} />;
+};
+
+export const AddButton = ({ onClick }: { onClick: () => void }) => {
+  return <CirclePlus className={style['clickable-button']} onClick={onClick} />;
+};
+
+export const MinusButton = ({ onClick }: { onClick: () => void }) => {
+  return <CircleMinus className={style['clickable-button']} onClick={onClick} />;
 };

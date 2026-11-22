@@ -1,4 +1,3 @@
-
 import type { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
@@ -11,12 +10,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   shape?: ButtonShape;
   isLoading?: boolean;
+  selected?: boolean;
+  onClick: () => void;
 }
 
 export function Button({
   size = "m",
   isLoading = false,
   shape = "rounded",
+  selected = false,
+  onClick,
   children,
   disabled,
   className,
@@ -26,7 +29,14 @@ export function Button({
     <button
       {...rest}
       disabled={disabled || isLoading}
-      className={[styles.btn, styles[size], styles[shape], className]
+      onClick={onClick}
+      className={[
+        styles.btn,
+        styles[size],
+        styles[shape],
+        `${selected ? styles.selected : ""} `,
+        className,
+      ]
         .filter(Boolean)
         .join(" ")}
     >

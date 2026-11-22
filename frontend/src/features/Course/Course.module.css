@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 340px;
   min-width: 0;
+  justify-self: center;
   box-sizing: border-box;
   border: 1px solid black;
   overflow: hidden;
@@ -158,20 +160,62 @@
 
 /* Circle button layout */
 .course-filter-round-buttons {
+  --button-width: 50px; /* Hard-coded for now. Need to use a shared variable with Button.module.css later */
+  --button-gap: calc(var(--button-width) / 4);
   display: grid;
-  grid-template-columns: repeat(auto-fit, 48px);
+  grid-template-columns: repeat(auto-fit, var(--button-width));
   justify-content: center;
 
-  gap: 16px;
+  gap: var(--button-gap);
   width: 100%;
 }
 
 /* Rounded rectangular button layout */
-.course-filter-rounded-buttons {
+.course-filter-rectangle-buttons {
+  --button-width: 100px; /* Hard-coded for now. Need to use a shared variable with Button.module.css later */
+  --button-gap: calc(var(--button-width) / 4);
   display: grid;
-  grid-template-columns: repeat(auto-fit, 120px);
+  grid-template-columns: repeat(auto-fit, var(--button-width));
   justify-content: center;
 
-  gap: 16px;
+  gap: var(--button-gap);
   width: 100%;
 }
+
+.course-filter-day-dropdown {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.course-filter-day-dropdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.course-filter-day-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* .course-filter-day-dropdown-row select {
+  width: var(--btn-l-width);
+  height: 60px;
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+  border: none;
+  border-radius: 12px;
+  background-color: #ecd194;
+
+  text-align: center;
+  font: inherit;
+  cursor: pointer;
+} */
