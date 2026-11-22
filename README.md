@@ -42,6 +42,7 @@ This is the most important and necessary feature of the application. Many studen
 
 *Having researched on the tech stack and code organisation as well as the plug-ins for the calendar, c'est parti ! Currently, I have a working filter for which I have written tests. The next step is to finish up the search functionality and move on to the second feature.*
 
+The filter lets students narrow the course list by period, campus, and category, as well as by meeting day and time (morning, afternoon, or all day). These options can be combined to find courses that fit their preferences and schedules.
 
 ## Frontend: How To
 
