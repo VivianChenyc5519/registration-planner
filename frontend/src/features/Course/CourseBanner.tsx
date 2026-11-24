@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LanguageButton } from "../../components/SpecialButton";
-import { UserProfileButton } from "../../components/SpecialButton";
+import { Funnel } from "lucide-react";
+import {
+  IconButton,
+  LanguageButton,
+  UserProfileButton,
+} from "../../components/SpecialButtons/SpecialButton";
 import type { Language } from "../../types/Language";
 import Banner from "../../components/Banner/Banner";
-import { FilterButton } from "../../components/SpecialButton";
+import SearchBar from "../../components/SearchBar/Searchbar";
 
 interface CourseBannerProps {
   onClickFilterButton: () => void;
   className?: string;
   filterOpen: Boolean;
+  handleSearch: (term: string) => void;
 }
 
-export function CourseBanner({onClickFilterButton, className, filterOpen}: CourseBannerProps) {
+export function CourseBanner({onClickFilterButton, className, filterOpen, handleSearch}: CourseBannerProps) {
   const [language, setLanguage] = useState<Language>("en");
   const navigate = useNavigate();
 
@@ -20,15 +25,19 @@ export function CourseBanner({onClickFilterButton, className, filterOpen}: Cours
     setLanguage(language === "en" ? "fr" : "en"); // could expand to other language later
   }
 
-  // function onClickFilterButton() {
-  //   alert("Opening filter");
-  // }
-
   return (
     <Banner
       className={className}
-      left={(!filterOpen && <FilterButton onClick={onClickFilterButton} />)}
-      center={<h1>A search bar</h1>}
+      left={
+        !filterOpen && (
+          <IconButton
+            icon={Funnel}
+            label="Open filters"
+            onClick={onClickFilterButton}
+          />
+        )
+      }
+      center={<SearchBar onSearch={handleSearch} placeholder="Enter a keyword to search for a course"/>}
       right={
         <>
           <LanguageButton language={language} onClick={onClickLanguageButton} />

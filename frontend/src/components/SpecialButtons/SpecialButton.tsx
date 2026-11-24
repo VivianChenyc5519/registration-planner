@@ -1,8 +1,9 @@
-import languageEn from "../assets/english.png";
-import languageFr from "../assets/french.png";
-import type { Language } from "../types/Language";
+import type { ButtonHTMLAttributes } from "react";
+import languageEn from "../../assets/english.png";
+import languageFr from "../../assets/french.png";
+import type { Language } from "../../types/Language";
 import style from "./SpecialButton.module.css";
-import { Funnel, Undo2, CirclePlus, CircleMinus  } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type LanguageButtonProps = {
   language: Language;
@@ -47,18 +48,29 @@ export function LanguageButton({ language, onClick }: LanguageButtonProps) {
   );
 }
 
-export const FilterButton = ({ onClick }: { onClick: () => void }) => {
-  return <Funnel className={style['clickable-button']} onClick={onClick} />;
-};
+interface IconButtonProps {
+  icon: LucideIcon;
+  label: string;
+  onClick?: () => void;
+  size?: number;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+}
 
-export const ReturnButton = ({ onClick }: { onClick: () => void }) => {
-  return <Undo2 className={style['clickable-button']} onClick={onClick} />;
-};
-
-export const AddButton = ({ onClick }: { onClick: () => void }) => {
-  return <CirclePlus className={style['clickable-button']} onClick={onClick} />;
-};
-
-export const MinusButton = ({ onClick }: { onClick: () => void }) => {
-  return <CircleMinus className={style['clickable-button']} onClick={onClick} />;
-};
+export function IconButton({
+  icon: Icon,
+  label,
+  onClick,
+  size = 24,
+  type = "button",
+}: IconButtonProps) {
+  return (
+    <button
+      type={type}
+      className={style["clickable-button"]}
+      aria-label={label}
+      onClick={onClick}
+    >
+      <Icon size={size} aria-hidden="true" />
+    </button>
+  );
+}

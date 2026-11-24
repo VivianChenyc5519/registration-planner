@@ -1,12 +1,10 @@
 import type { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
-type ButtonVariant = "primary" | "ghost";
 type ButtonSize = "s" | "m" | "l";
 type ButtonShape = "rounded" | "circle";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
   size?: ButtonSize;
   shape?: ButtonShape;
   isLoading?: boolean;
@@ -30,6 +28,7 @@ export function Button({
       {...rest}
       disabled={disabled || isLoading}
       onClick={onClick}
+      aria-pressed={selected}
       className={[
         styles.btn,
         styles[size],

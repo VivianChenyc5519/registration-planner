@@ -1,11 +1,8 @@
 import { Button } from "../../components/Button/Button";
 import style from "./Course.module.css";
 import ButtonStyle from "../../components/Button/Button.module.css";
-import {
-  ReturnButton,
-  MinusButton,
-  AddButton,
-} from "../../components/SpecialButton";
+import { CircleMinus, CirclePlus, Undo2 } from "lucide-react";
+import { IconButton } from "../../components/SpecialButtons/SpecialButton";
 import type DayFilterItem from "../../types/DayFilterItem";
 import type { Period, CourseCategory, KnownCampus } from "../../types/Course";
 
@@ -47,7 +44,7 @@ export default function CourseFilter({
   return (
     <div className={`${style["course-filter"]} ${className ?? ""}`}>
       <div className={style["course-filter-header"]}>
-        <ReturnButton onClick={onClose} />
+        <IconButton icon={Undo2} label="Close filters" onClick={onClose} />
       </div>
       <div className={style["course-filter-item"]}>
         <PeriodFilter allPeriods={allPeriods} selectedPeriods={selectedPeriods} onTogglePeriod={onChangePeriod}/>
@@ -150,7 +147,11 @@ function DayFilter({
     <>
       <div className={style["course-filter-day-header"]}>
         <h3 className={style["course-filter-title"]}>Day</h3>
-        <AddButton onClick={() => onAddDay({ day: null, time: null })} />
+        <IconButton
+          icon={CirclePlus}
+          label="Add day filter"
+          onClick={() => onAddDay({ day: null, time: null })}
+        />
       </div>
       <DayFilterDropDown
         days={days}
@@ -210,7 +211,11 @@ function DayFilterDropDown({
             <option value="Afternoon">Afternoon</option>
             <option value="AllDay">All Day</option>
           </select>
-          <MinusButton onClick={() => onDeleteDay(index)} />
+          <IconButton
+            icon={CircleMinus}
+            label={`Remove day filter ${index + 1}`}
+            onClick={() => onDeleteDay(index)}
+          />
         </div>
       ))}
     </div>

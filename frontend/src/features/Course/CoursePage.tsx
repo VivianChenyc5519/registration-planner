@@ -138,6 +138,7 @@ export function CoursePage() {
   const [selectedCategory, setSelectedCategory] = useState<CourseCategory[]>(
     [],
   );
+  const [searchTerms, setSearchTerms] = useState<string>('');
   // const [courses, setCourses] = useState<Course[]>([]);
 
   const updateDay = (index: number, update: Partial<DayFilterItem>) => {
@@ -193,6 +194,15 @@ export function CoursePage() {
   };
 
   const filterCourses = courses.filter((course) => {
+    const matchesSearch = searchTerms.trim() === "" || 
+    [
+      course.code,
+      course.title,
+      course.category,
+      course.campus,
+      course.period,
+      course.instructor,
+    ].some((value) => value.toLowerCase().includes(searchTerms.trim().toLowerCase()));
     const matchesPeriod =
       selectedPeriods.length === 0 || selectedPeriods.includes(course.period);
     const matchesCampus =
@@ -220,7 +230,7 @@ export function CoursePage() {
         return matchesWeekday && CheckTimeOfDay(course, item);
       });
 
-    return matchesPeriod && matchesCampus && matchesCategory && matchesDays;
+    return matchesSearch && matchesPeriod && matchesCampus && matchesCategory && matchesDays;
   });
   // console.debug("filterCourses:", filterCourses);
 
@@ -232,6 +242,7 @@ export function CoursePage() {
         className={style["course-page-banner"]}
         filterOpen={filterOpen}
         onClickFilterButton={() => setFilterOpen(true)}
+        handleSearch={(term: string) => {setSearchTerms(term);}}
       />
       {filterOpen && (
         <CourseFilter
