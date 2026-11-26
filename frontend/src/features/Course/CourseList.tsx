@@ -13,6 +13,7 @@ export default function CourseList({courses, className}: CourseListProps) {
       {courses.map((course) => (
         <CourseCard
           key={course.id}
+          id={course.id}
           code={course.code}
           title={course.title}
           category={course.category}

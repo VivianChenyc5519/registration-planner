@@ -127,7 +127,7 @@ function CheckTimeOfDay(
   );
 }
 
-export function CoursePage() {
+export default function CoursePage() {
   const [courses, setCourses] = useState<Course[]>(mockCourses);
   const [filterOpen, setFilterOpen] = useState<Boolean>(false);
   const [selectedDays, setSelectedDays] = useState<DayFilterItem[]>([

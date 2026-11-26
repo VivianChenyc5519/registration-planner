@@ -17,7 +17,7 @@ const languageImages = {
 
 type UserProfileButtonProps = {
   initial: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export function UserProfileButton({ initial, onClick }: UserProfileButtonProps) {

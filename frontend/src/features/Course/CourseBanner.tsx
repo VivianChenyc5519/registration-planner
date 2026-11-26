@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Funnel } from "lucide-react";
 import {
   IconButton,
@@ -17,9 +17,13 @@ interface CourseBannerProps {
   handleSearch: (term: string) => void;
 }
 
-export function CourseBanner({onClickFilterButton, className, filterOpen, handleSearch}: CourseBannerProps) {
+export function CourseBanner({
+  onClickFilterButton,
+  className,
+  filterOpen,
+  handleSearch,
+}: CourseBannerProps) {
   const [language, setLanguage] = useState<Language>("en");
-  const navigate = useNavigate();
 
   function onClickLanguageButton() {
     setLanguage(language === "en" ? "fr" : "en"); // could expand to other language later
@@ -37,14 +41,18 @@ export function CourseBanner({onClickFilterButton, className, filterOpen, handle
           />
         )
       }
-      center={<SearchBar onSearch={handleSearch} placeholder="Enter a keyword to search for a course"/>}
+      center={
+        <SearchBar
+          onSearch={handleSearch}
+          placeholder="Enter a keyword to search for a course"
+        />
+      }
       right={
         <>
           <LanguageButton language={language} onClick={onClickLanguageButton} />
-          <UserProfileButton
-            initial="YC"
-            onClick={() => navigate("./schedule")}
-          />
+          <Link to="/schedule">
+            <UserProfileButton initial="YC" />
+          </Link>
         </>
       }
     />

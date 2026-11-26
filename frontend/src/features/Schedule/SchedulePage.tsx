@@ -1,7 +1,9 @@
-export function SchedulePage() {
+import ReviewBanner from "../../components/Banner/ReviewBanner";
+
+export default function SchedulePage() {
   return (
     <main>
-      <h1>Scheduling</h1>
+      <ReviewBanner />
     </main>
   );
 }

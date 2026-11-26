@@ -11,10 +11,15 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@schedule-x/calendar": "^4.9.2",
+    "@schedule-x/events-service": "^4.9.2",
+    "@schedule-x/react": "^4.1.0",
+    "@schedule-x/theme-default": "^4.9.2",
     "lucide-react": "^1.73.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.18.5"
+    "react-router-dom": "^7.18.5",
+    "temporal-polyfill": "^1.0.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^8.0.0",

@@ -173,8 +173,6 @@ function DayFilterDropDown({
   onUpdateDay,
   onDeleteDay,
 }: DayFilterDropDownProps) {
-  // void onAddDay;
-  // void onDeleteDay;
 
   return (
     <div className={style["course-filter-day-dropdown"]}>

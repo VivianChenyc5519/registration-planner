@@ -1,13 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import { CoursePage } from "./features/Course/coursePage";
-// import { SchedulePage } from "./features/Schedule/SchedulePage";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<CoursePage />} />
-      {/* <Route path="/schedule" element={<SchedulePage />} /> */}
-    </Routes>
+    <AppRouter />
   );
 }
 
